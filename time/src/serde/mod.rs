@@ -83,8 +83,6 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 ///
 /// // Makes a module `mod my_format { ... }`.
 /// serde::format_description!(my_format, OffsetDateTime, "hour=[hour], minute=[minute]");
-///
-/// # #[allow(dead_code)]
 #[cfg_attr(
     all(feature = "formatting", feature = "parsing"),
     doc = "#[derive(Serialize, Deserialize)]"
@@ -129,8 +127,6 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 ///
 /// // Makes a module `mod my_format { ... }`.
 /// serde::format_description!(my_format, OffsetDateTime, DATE_TIME_FORMAT);
-///
-/// # #[allow(dead_code)]
 #[cfg_attr(
     all(feature = "formatting", feature = "parsing"),
     doc = "#[derive(Serialize, Deserialize)]"
@@ -151,7 +147,7 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 /// }
 ///
 /// fn main() {
-///     # #[allow(unused_variables)]
+///     # #[expect(unused_variables)]
 ///     let str_ts = OffsetDateTime::now_utc().format(DATE_TIME_FORMAT).unwrap();
 /// }
 /// ```
@@ -174,17 +170,13 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 /// use time::serde;
 /// use time::format_description::well_known::{iso8601, Iso8601};
 ///
-/// # #[allow(dead_code)]
 /// const CONFIG: iso8601::EncodedConfig = iso8601::Config::DEFAULT
 ///     .set_year_is_six_digits(false)
 ///     .encode();
-/// # #[allow(dead_code)]
 /// const FORMAT: Iso8601<CONFIG> = Iso8601::<CONFIG>;
 ///
 /// // Makes a module `mod my_format { ... }`.
 /// serde::format_description!(my_format, OffsetDateTime, FORMAT);
-///
-/// # #[allow(dead_code)]
 #[cfg_attr(
     all(feature = "formatting", feature = "parsing"),
     doc = "#[derive(Serialize, Deserialize)]"
